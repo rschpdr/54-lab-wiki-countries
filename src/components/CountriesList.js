@@ -7,26 +7,26 @@ function CountriesList(props) {
         return (
           // Para usuários Mac
           // <Link
-          //   key={countryObj.cca3}
+          //   key={countryObj.alpha3Code}
           //   className="list-group-item list-group-item-action"
-          //   to={`/${countryObj.cca3}`}
+          //   to={`/${countryObj.alpha3Code}`}
           // >
           //   {countryObj.flag} {countryObj.name.common}
           // </Link>
 
           // Para usuários Windows/Linux
           <Link
-            key={countryObj.cca3}
+            key={countryObj.alpha3Code}
             className="list-group-item list-group-item-action"
-            to={`/${countryObj.cca3}`}
+            to={`/${countryObj.alpha3Code}`}
           >
             <img
               className="me-3"
-              src={`https://www.countryflags.io/${countryObj.cca2}/flat/32.png`}
-              alt={`Flag of ${countryObj.name.common}`}
+              src={`https://www.countryflags.io/${countryObj.alpha2Code}/flat/32.png`}
+              alt={`Flag of ${countryObj.name}`}
             />
 
-            {countryObj.name.common}
+            {countryObj.name}
           </Link>
         );
       })}

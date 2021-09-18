@@ -4,35 +4,35 @@ import { Link } from 'react-router-dom';
 function CountryDetail(props) {
   const [country, setCountry] = useState({
     name: '',
-    capital: [],
+    capital: '',
     area: '',
     borders: [],
   });
 
   useEffect(() => {
     const foundCountry = props.countries.find(
-      (countryObj) => countryObj.cca3 === props.match.params.cca3
+      (countryObj) => countryObj.alpha3Code === props.match.params.alpha3Code
     );
 
     if (foundCountry) {
       const { name, capital, area, borders } = foundCountry;
 
       setCountry({
-        name: name.common,
-        capital: [...capital],
+        name: name,
+        capital: capital,
         area: area,
         borders: [...borders],
       });
     }
   }, [props]);
 
-  function getCountryNameByCode(cca3) {
+  function getCountryNameByCode(alpha3Code) {
     const foundCountry = props.countries.find(
-      (countryObj) => countryObj.cca3 === cca3
+      (countryObj) => countryObj.alpha3Code === alpha3Code
     );
 
     if (foundCountry) {
-      return foundCountry.name.common;
+      return foundCountry.name;
     }
 
     return '';
@@ -46,9 +46,7 @@ function CountryDetail(props) {
         <tbody>
           <tr>
             <td style={{ width: '30%' }}>Capital</td>
-            {country.capital.map((capitalStr) => (
-              <td key={capitalStr}>{capitalStr}</td>
-            ))}
+            <td>{country.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
