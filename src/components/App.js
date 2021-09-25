@@ -9,6 +9,7 @@ import CountryDetail from './CountryDetail';
 function App() {
   // Definindo um state vazio
   const [countries, setCountries] = useState([]);
+  console.log("salve")
 
   // Atualiza o state para conter os países do arquivo JSON assim que o componente App for renderizado na tela
   useEffect(() => {
